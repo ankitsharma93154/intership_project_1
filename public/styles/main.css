@@ -1,0 +1,173 @@
+html {
+    background-color: #e4e9fd;
+    background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+    min-height: 1000px;
+
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 95vh;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  main {
+    text-align: center;
+    flex: 1 0 auto;
+  }
+  h1 {
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .box {
+    max-width: 450px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  #heading {
+    background-color: #a683e3;
+    text-align: center;
+  }
+  form.edit {
+    display: flex;
+    flex-direction: column;
+  }
+  h2{
+    margin-right: auto;
+    margin-top: 15px;
+  }
+  
+  .item {
+    min-height: 70px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .item-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+  
+  .item:last-child {
+    border-bottom: 0;
+  }
+  /* Style the checkbox itself */
+input[type="checkbox"] {
+  margin: 20px;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  appearance: none; /* Remove default styling */
+  border: 2px solid #a683e3;
+  border-radius: 5px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Style when checkbox is checked */
+input[type="checkbox"]:checked {
+  background-color: #a683e3;
+  border-color: #a683e3;
+}
+
+
+  
+  p {
+    margin: 20px;
+    margin-top: 0px;
+    margin-right: 0px;
+    font-size: 20px;
+    text-align: left;
+  }
+  
+  form {
+    text-align: center;
+    padding-left: 10px;
+  }
+  
+  button.add {
+    margin-top: 5px;
+    min-height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #a683e3;
+    color: #fff;
+    font-size: 30px;
+    border-width: 0;
+  }
+  
+  button.edit {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+  }
+  
+  .icon {
+    height: 20px;
+  }
+ .addTitle{
+  text-align: left;
+    height: 60px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 80%;
+    margin-bottom: 10px;
+ }
+ .addDescription{
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 65%;
+  margin-bottom: 10px;
+ }
+  
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #a683e3;
+  }
+ .item-row button{
+  margin-right:20px;
+  margin-bottom: 5px;
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+ }
+
+
+.strike-through {
+  text-decoration: line-through;
+  color: gray;
+}
+  img{
+    height:20px;
+    width:20px;
+    background-color: white;
+    display: block;
+  }
+  ::placeholder {
+    color: lightgray;
+    opacity: 1;
+  }
+  
+  footer {
+    flex: 0 0 auto;
+    color: white;
+    text-align: center;
+  }
+  

@@ -1,0 +1,87 @@
+<%- include('partials/header.ejs'); -%>
+
+  <div class="box" id="heading">
+    <h1>
+      <%= listTitle %>
+    </h1>
+  </div>
+  <div class="box">
+    <% for(let item of listItems){%>
+      <div class="item">
+        <div class="item-row">
+          <form>
+            <input style="display:block" id="checkbox<%=item.id%>" style="margin:10px;" class="checkbbox" type="checkbox">
+          </form>
+  
+          <h2 id="title<%=item.id%>" style="display:block" class="text">
+            <%= item.title %>
+          </h2>
+  
+          <button id="edit<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"><img class="icon"
+            src="/assets/pencil-solid.svg" alt="pencil image"></button>
+        </div>
+
+        <div class="item-row">
+          <p id="description<%=item.id%>" style="margin-right:auto" class="text">
+          <%= item.description %>
+        </p>
+        <form action="/delete" method="post">
+          <button name="deleteItemId" value="<%= item.id %>" ><img src="/assets/icons8-trash-50.png"/></button>
+        </form>
+        
+      </div>
+    
+
+
+        <form class="edit" action="/edit" method="post">
+          <input type="hidden" name="updatedItemId" value="<%= item.id %>">
+          <!-- input blank -->
+          <input id="input<%=item.id%>" class="addTitle" type="text" name="updatedItemTitle" value="<%= item.title %>" autocomplete="off" autofocus="true" style="display:none" placeholder="Title" required/>
+          <!-- textarea blank -->
+          <input id="inputDescription<%=item.id%>" class="addTitle" type="text" name="updatedItemDescription" value="<%= item.description %>" autocomplete="off" autofocus="true" style="display:none" placeholder="Description" required/>
+             <!-- check icon -->
+          <button id="done<%=item.id%>" class="edit" type="submit" hidden><img class="icon"
+              src="/assets/check-solid.svg" alt="tick image"></button>
+        </form>
+        
+      </div>
+      <% } %>
+
+        <form class="item" style="background-color:#585858; color:white"  action="/add" method="post">
+          <input type="text" class="addTitle" name="newItem" placeholder="New Item" autocomplete="off" autofocus="true" required />
+          <input type="text" class="addDescription" name="newDescription" placeholder="Add Description" autocomplete="off" autofocus="true" required/>
+          <button class="add" type="submit" name="list" value=<%=listTitle %> >+</button>
+        </form>
+  </div>
+
+  <script>
+    function handleCheckboxChange(event) {
+      const itemId = event.target.id.replace('checkbox', '');
+      const titleElement = document.getElementById('title' + itemId);
+      const descriptionElement = document.getElementById('description' + itemId);
+    
+      if (event.target.checked) {
+        titleElement.classList.add('strike-through');
+        descriptionElement.classList.add('strike-through');
+      } else {
+        titleElement.classList.remove('strike-through');
+        descriptionElement.classList.remove('strike-through');
+      }
+    }
+    
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.addEventListener('change', handleCheckboxChange);
+    });
+
+    
+
+    function handler(id) {
+      document.getElementById("title" + id).style.display = "none"
+      document.getElementById("description" + id).setAttribute("hidden", true)
+      document.getElementById("edit" + id).setAttribute("hidden", true)
+      document.getElementById("done" + id).removeAttribute("hidden")
+      document.getElementById("input" + id).style.display = "block"
+      document.getElementById("inputDescription" + id).style.display = "block"
+    }
+  </script>
+  <%- include('partials/footer.ejs'); -%>
